@@ -1,5 +1,6 @@
 # Mini-proyecto N°1
 Asignatura: Funtamentos de la programación orientada a eventos (FPOE).
+
 Autores: Juan Sebastian Valencia, Andrés Leniz.
 
 Este primer mini-proyecto de la asignatura de FPOE tiene como objetivo crear un juego
