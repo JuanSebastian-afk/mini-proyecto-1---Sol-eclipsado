@@ -13,5 +13,6 @@ por ronda.
 
 
 ## Documentación del proyecto:
-Peden consultar la información tecnica del proyecto en el siguiente enlace:
+Pueden consultar la información tecnica del proyecto en el siguiente enlace:
+
 Javadoc Online: https://juansebastian-afk.github.io/mini-proyecto-1---Sol-eclipsado/
