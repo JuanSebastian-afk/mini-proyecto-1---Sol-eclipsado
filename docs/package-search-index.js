@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.example.miniproyecto_1_soleclipsado","l":"com.example.miniproyecto_1_soleclipsado"}];updateSearchResults();

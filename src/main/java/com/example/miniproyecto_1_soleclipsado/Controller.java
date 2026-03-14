@@ -3,12 +3,16 @@ package com.example.miniproyecto_1_soleclipsado;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class Controller {
-    @FXML
-    private Label welcomeText;
+/**
+ * Clase controladora para la vista del juego Sol Eclipsado.
+ * Gestiona los eventos de los botones y la actualización de la interfaz.
+ * @author Juan Sebastian Valencia y Andrés Lenis
+ * @version 0.1.0
+ */
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+
+public class Controller {
+
+
+
 }
