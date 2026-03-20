@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
 
 public class ControllerSceneGame {
 
-    PalabraSecreta modelo;
+    PalabraSecreta model;
 
     @FXML
     private ImageView imgEstadoEclipse;
@@ -26,17 +26,26 @@ public class ControllerSceneGame {
     @FXML
     private HBox HBoxPalabraSecreta;
 
+    public void setModelo(PalabraSecreta palabraSecreta) {model = palabraSecreta;}
+
+    public void iniciarJuego(){
+        if(model != null){
+            crearCasillas(model);
+            actualizarImagen();
+        }
+    }
+
 
     //Este arreglo contiene las rutas a las imagenes del eclipse solar, su objetivo es proporcionar un acceso rapido y como a las rutas.
     private String[] rutasEclipses= {
-            "com/example/miniproyecto_1_soleclipsado/Images/Logo.png",//cero fallos
+            "/com/example/miniproyecto_1_soleclipsado/Images/Logo.png",//cero fallos
             "/com/example/miniproyecto_1_soleclipsado/Images/eclipse1.png", //un fallo
             "/com/example/miniproyecto_1_soleclipsado/Images/eclipse2.png", //dos fallos
             "/com/example/miniproyecto_1_soleclipsado/Images/eclipse3.png", //tres fallos
             "/com/example/miniproyecto_1_soleclipsado/Images/eclipse4.png", //cuatro fallos
     };
 
-    //Variable encargada de contar los fallos del jugador
+    //Variable encargada de contar los fallos del jugador PASARLA AL MODELO
     private int fallos = 0;
 
     //Métpdp encargado de la actualización de la imagen del sol eclipsado.

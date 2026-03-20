@@ -17,9 +17,9 @@ public class PalabraSecreta {
     public String getPalabraSecreta() {return palabraSecreta;}
 
     public boolean palabraValida(){
-        if(palabraSecreta.length()<6 || palabraSecreta.length()>12) return false;
+        if(palabraSecreta.length()>=6 && palabraSecreta.length()<=12) return true;
         else if(palabraSecreta.matches("\\p{L}+")) return false;
-        return true;
+        else return false;
     }
 
     public void quitarAcentos(){

@@ -1,6 +1,7 @@
 module com.example.miniproyecto_1_soleclipsado {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.miniproyecto_1_soleclipsado to javafx.fxml;
