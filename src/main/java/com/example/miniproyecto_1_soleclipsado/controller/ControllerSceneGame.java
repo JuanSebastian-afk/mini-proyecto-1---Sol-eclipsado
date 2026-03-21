@@ -1,5 +1,6 @@
 package com.example.miniproyecto_1_soleclipsado.controller;
 
+import com.example.miniproyecto_1_soleclipsado.Model.LogicaJuego;
 import com.example.miniproyecto_1_soleclipsado.Model.PalabraSecreta;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -20,6 +21,8 @@ public class ControllerSceneGame {
 
     PalabraSecreta model;
 
+    LogicaJuego logicaJuego;
+
     @FXML
     private ImageView imgEstadoEclipse;
 
@@ -30,8 +33,10 @@ public class ControllerSceneGame {
 
     public void iniciarJuego(){
         if(model != null){
+            logicaJuego = new LogicaJuego();  //instanciamos la lógica el juego una unica vez
+            logicaJuego.setPalabraSecreta(model.getPalabraSecreta());
+
             crearCasillas(model);
-            actualizarImagen();
         }
     }
 
@@ -48,11 +53,10 @@ public class ControllerSceneGame {
     //Variable encargada de contar los fallos del jugador PASARLA AL MODELO
     private int fallos = 0;
 
-    //Métpdp encargado de la actualización de la imagen del sol eclipsado.
-    private void actualizarImagen(){
-        if(fallos < rutasEclipses.length){
-            Image imagenAux = new Image(getClass().getResourceAsStream(rutasEclipses[fallos]));
-
+    //Método encargado de la actualización de la imagen del sol eclipsado.
+    private void actualizarImagen(int numImage){
+        if(numImage >= 0 && fallos <= rutasEclipses.length){
+            Image imagenAux = new Image(getClass().getResourceAsStream(rutasEclipses[numImage]));
             imgEstadoEclipse.setImage(imagenAux);
         }
     }
@@ -66,8 +70,20 @@ public class ControllerSceneGame {
             casilla.setPrefWidth(40);
             casilla.setAlignment(Pos.CENTER);
             casilla.setStyle("-fx-font-size: 18; -fx-font-weight: bolt");
+
+            int indiceActual = i;
+            casilla.textProperty().addListener((observable, oldValue, newValue)->{
+
+                char letra = newValue.charAt(0);
+                boolean esCorrecta = logicaJuego.verificaLetra(letra, indiceActual);
+
+                if(!esCorrecta){
+                    actualizarImagen(logicaJuego.getFallos());
+                    casilla.clear();
+                }
+            });
+            HBoxPalabraSecreta.getChildren().add(casilla);
         }
     }
-
 
 }
